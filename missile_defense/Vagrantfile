@@ -1,0 +1,23 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+ENV_NAME = "hairy.adventure.dev"
+
+Vagrant.configure(2) do |config|
+ 
+  config.vm.box = "debian/jessie64"
+  config.vm.hostname = ENV_NAME
+
+  config.vm.synced_folder ".", "/home/vagrant/missile_defense"
+
+  config.vm.provider :virtualbox do |vb|
+    vb.name = ENV_NAME
+    vb.cpus = 2
+    vb.memory = 2048
+  end
+
+  config.vm.provision(:shell, path: "provision/basic.sh")
+  config.vm.provision(:shell, path: "provision/ruby.sh", privileged: false)
+  config.vm.provision(:shell, path: "provision/docker.sh", privileged: false)
+
+end
