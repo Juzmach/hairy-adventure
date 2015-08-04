@@ -146,7 +146,7 @@ print_slowly(GREEN, 'Juuso Pikkujämsä.', True)
 answer3_5 = raw_input()
 answers.append(answer3_5)
 
-print_slowly(GREEN, 'Juuso Stromberg.', True)
+print_slowly(GREEN, 'Juuso Strömberg.', True)
 answer3_6 = raw_input()
 answers.append(answer3_6)
 
