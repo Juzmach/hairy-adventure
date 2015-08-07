@@ -112,7 +112,22 @@ int getCurrentKey()
 
 int checkCorrect(int num) 
 {
+    printf("check correct parameter %d\n", num);
     return num == getCurrentKey();
+}
+
+int handleErroneousCode()
+{
+    //open dickbutt
+    printf("\nreturning %d from program\n", 1);
+    return 1;
+}
+
+int handleCorrectCode()
+{
+    //open missile launcher or whatever
+    printf("\nreturning %d from program\n", 0);
+    return 0;
 }
 
 int main(int argc, char **argv)
@@ -124,8 +139,14 @@ int main(int argc, char **argv)
         printf(argv[1]);
         printf("\nnakki: %d \n", getNthFibo(40));
         printf("got parameter %d\n", argc);
-        getCurrentKey();
-
+        if(checkCorrect(atoi(argv[1])))
+        {
+            return handleCorrectCode();
+        }
+        else
+        {
+            return handleErroneousCode();
+        }
     }
 
     // add message in case of ctrl+c
@@ -154,4 +175,16 @@ int main(int argc, char **argv)
     printf("If not, you might have access to the CODE_GENERATOR_MANUAL and relevant H.A.C.K.E.R training to implement a new access code generator\n\n");
     printf("Enter your access code now. Be aware that entering invalid access codes may have unexpected consequences\n");
     printf("\n");
+    
+
+    int inputNum;
+    scanf("%d", &inputNum);
+    if(checkCorrect(inputNum))
+    {
+        return handleCorrectCode();
+    }
+    else
+    {
+        return handleErroneousCode();
+    }
 }
