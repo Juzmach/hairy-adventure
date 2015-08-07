@@ -14,10 +14,29 @@ void sleep_ms(int micros)
 {
     usleep(micros * 1000);
 }
-int main()
+int recurse(int sndLast, int last, int depth)
+{
+    int dis = sndLast + last;
+    if(depth == 1)
+    {
+        return dis;
+    }
+    return recurse(last, dis, depth - 1);
+}
+int getNthFibo(int idx)
+{
+    return recurse(1,1,idx-2);
+}
+int main(int argc, char **argv)
 {
     // clear screen
     printf("\033[H\033[J");
+    if(argc)
+    {
+        printf(argv[1]);
+        printf("nakki: %d", getNthFibo(40));
+        printf("got parameter %d\n", argc);
+    }
 
     // add message in case of ctrl+c
     signal(SIGINT, sigintHandler);
