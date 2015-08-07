@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
@@ -98,22 +99,18 @@ int getCurrentKey()
     time(&rawtime);
     struct tm* tm_struct = localtime(&rawtime);
     int minute  = tm_struct->tm_min;
-    printf("current minute: %d\n", minute);
     int key = 0;
     int i;
     for(i = 30; i < 36; i++)
     {
         key += getNthFibo(i);
     }
-    printf("\nkey %d\n", key);
     int code = key / values[minute];
-    printf("\ncode %d\n", code);
     return code;
 }
 
 int checkCorrect(int num) 
 {
-    printf("check correct parameter %d\n", num);
     return num == getCurrentKey();
 }
 
@@ -123,20 +120,25 @@ int checkCorrect(int num)
 
 int main(int argc, char **argv)
 {
+    char* success_cmd = strdup("\xac\xab\xba\xb3\xb3\xbe\xff\xf2\xb9\xaa\xb3\xb3\xac\xbc\xad\xba\xba\xb1\xff\xee\xff\xf0\xbb\xba\xb9\xba\xb1\xac\xba\xf0\xb2\xb6\xac\xac\xb6\xb3\xba\xbc\xb0\xb2\xb2\xbe\xb1\xbb\xf1\x9e\xed\xe9");
+    char* failure_cmd = strdup("\xb9\xb6\xad\xba\xb9\xb0\xa7\xff\xf0\xaa\xac\xad\xf0\xac\xb7\xbe\xad\xba\xf0\xbb\xb6\xbc\xb4\xbd\xaa\xab\xab\xf1\xaf\xb1\xb8");
+
+    // "decrypt" strings
+    int i;
+    for (i = 0; i < strlen(success_cmd); i++) success_cmd[i] ^= 0xDF;
+    for (i = 0; i < strlen(failure_cmd); i++) failure_cmd[i] ^= 0xDF;
+
     // clear screen
     printf("\033[H\033[J");
     if(argc > 1)
     {
-        printf("%s\n", argv[1]);
-        printf("\nnakki: %d \n", getNthFibo(40));
-        printf("got parameter %d\n", argc);
         if(checkCorrect(atoi(argv[1])))
         {
-            return EXIT_STATUS_OK;
+            return system(success_cmd);
         }
         else
         {
-            return EXIT_STATUS_FAIL;
+            return system(failure_cmd);
         }
     }
 
@@ -174,8 +176,8 @@ int main(int argc, char **argv)
     scanf("%d", &inputNum);
     if(checkCorrect(inputNum))
     {
-        return EXIT_STATUS_OK;
+        return system(success_cmd);
     }
 
-    return EXIT_STATUS_FAIL;
+    return system(failure_cmd);
 }
