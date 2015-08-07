@@ -1,0 +1,14 @@
+{
+  "name": "m.o.o.n.a",
+  "version": "1.0.0",
+  "description": "Missile operated opression netralization arsenal",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fibonazi (c)",
+  "license": "MIT",
+  "dependencies": {
+    "readline-sync": "^1.2.19"
+  }
+}
