@@ -94,7 +94,6 @@ int values[60] = {
 };
 int getCurrentKey()
 {
-
     time_t rawtime;
     time(&rawtime);
     struct tm* tm_struct = localtime(&rawtime);
