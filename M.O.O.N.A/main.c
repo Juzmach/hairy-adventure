@@ -117,19 +117,9 @@ int checkCorrect(int num)
     return num == getCurrentKey();
 }
 
-int handleErroneousCode()
-{
-    //open dickbutt
-    printf("\nreturning %d from program\n", 1);
-    return 1;
-}
-
-int handleCorrectCode()
-{
-    //open missile launcher or whatever
-    printf("\nreturning %d from program\n", 0);
-    return 0;
-}
+// fuck yeah arbitrary numbers
+#define EXIT_STATUS_OK 5
+#define EXIT_STATUS_FAIL 6
 
 int main(int argc, char **argv)
 {
@@ -142,11 +132,11 @@ int main(int argc, char **argv)
         printf("got parameter %d\n", argc);
         if(checkCorrect(atoi(argv[1])))
         {
-            return handleCorrectCode();
+            return EXIT_STATUS_OK;
         }
         else
         {
-            return handleErroneousCode();
+            return EXIT_STATUS_FAIL;
         }
     }
 
@@ -184,10 +174,8 @@ int main(int argc, char **argv)
     scanf("%d", &inputNum);
     if(checkCorrect(inputNum))
     {
-        return handleCorrectCode();
+        return EXIT_STATUS_OK;
     }
-    else
-    {
-        return handleErroneousCode();
-    }
+
+    return EXIT_STATUS_FAIL;
 }
