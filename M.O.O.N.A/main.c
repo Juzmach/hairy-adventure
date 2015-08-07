@@ -100,7 +100,8 @@ int getCurrentKey()
     int minute  = tm_struct->tm_min;
     printf("current minute: %d\n", minute);
     int key = 0;
-    for(int i = 30; i < 36; i++)
+    int i;
+    for(i = 30; i < 36; i++)
     {
         key += getNthFibo(i);
     }
@@ -136,7 +137,7 @@ int main(int argc, char **argv)
     printf("\033[H\033[J");
     if(argc > 1)
     {
-        printf(argv[1]);
+        printf("%s\n", argv[1]);
         printf("\nnakki: %d \n", getNthFibo(40));
         printf("got parameter %d\n", argc);
         if(checkCorrect(atoi(argv[1])))
