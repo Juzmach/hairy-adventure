@@ -8,7 +8,7 @@
 void sigintHandler(int sig_num)
 {
     printf("\n Premature exit detected. This incident has been reported.\n");
-    printf("Incidents will be reviewed by the board over at the annual secret lizard convention \n");
+    printf("All incidents will be reviewed by the board over at the annual secret lizard convention \n");
     sleep(2);
     fflush(stdout);
     exit(0);
@@ -167,7 +167,10 @@ int main(int argc, char **argv)
     printf("Your supervisors should have provided you with today's access code sheet.\n");
     printf("If not, and you happen to have both the relevant H.A.C.K.E.R training and a CODE_GENERATOR_MANUAL, you can implement a new access code generator using a per minute key-value list and the system from the CODE_GENERATOR_MANUAL\n\n");
 
-    printf("Be aware that entering invalid access codes may have unexpected consequences and the attempt will be reviewed by the board over at the annual secret lizard convention\n\n");
+    printf("Be aware that entering invalid access codes may have unexpected consequences and all attempts will be reviewed by the board over at the annual secret lizard convention\n\n");
+
+    printf("\n You can also give the access code as a commandline parameter to this file to avoid the loading and text printing times.\n\n");
+
     printf("Enter your access code now. \n");
     printf("\n");
     
