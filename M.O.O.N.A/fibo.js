@@ -12,6 +12,10 @@ function getNthFibo(idx) {
 
 console.log(getNthFibo(7));
 
+var str = "";
 for(var i = 30; i < 40; i++) {
 	console.log('' + i + 'th fibo num: ' + getNthFibo(i));
+	str += getNthFibo(i);
 }
+
+console.log(str.split('').sort().join(''));
