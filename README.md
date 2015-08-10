@@ -19,11 +19,14 @@ Complete the Missile Defense Launch System.
 
 This system is meant to be used with a working ROM for the Atari 2600 game Missile Command. Make sure you have either that or some other ROM saved in the path:
 
-```/defense/missilecommand.A26```
+``/defense/missilecommand.A26``
 
 #### Compile
 
-Run ```./compile.sh```
+Run 
+
+``./compile.sh``
+
 
 ### S.P.E.C.I.A.L
 
