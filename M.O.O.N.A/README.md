@@ -22,7 +22,7 @@ The M.O.O.N.A. Launch System inicjalizacji Fibonazi Anti-Missile Defense System 
 
 ### Jak korzystać z Launch System
 
-``./MOONA`` - Uruchom launch system
+``./M.O.O.N.A`` - Uruchom launch system
 
 Po uruchomieniu wpisać kod Uruchom w wierszu, centrala powinna otworzyć się automatycznie wraz z właściwym kodem startu. W przeciwnym razie będzie on zamknięty.
 
